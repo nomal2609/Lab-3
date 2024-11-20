@@ -1,0 +1,31 @@
+<h1>{{title}}</h1>
+
+{{!-- Add links to CRUD operations --}}
+{{#if user}}
+  <a href="/songs/add" class="btn btn-success">Add a New Song</a>
+{{/if}}
+
+{{!-- Table to display songs --}}
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Song Name</th>
+      <th>Release Date</th>
+      <th>Language</th>
+      <th>Genre</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each dataset}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{toShortDate this.releaseDate}}</td>
+      <td>{{this.language}}</td>
+      <td>{{this.genre}}</td>
+      {{!-- Update and Delete buttons --}}
+          </tr>
+    {{/each}}
+  </tbody>
+</table>
+

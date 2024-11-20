@@ -1,0 +1,47 @@
+<h1>{{title}}</h1>
+
+{{!-- CREATE button --}}
+{{#if user}}
+  <a href="/singers/add" class="btn btn-success">Add a New Singer</a>
+{{/if}}
+
+{{!-- Table to display singers --}}
+<table>
+  <thead>
+    <tr>
+      <th>Singer Name</th>
+      <th>Lyricist Name</th>
+      <th>Song</th>
+      <th>Views/Listeners</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{!-- Retrieve all singers and loop through --}}
+    {{#each dataset}}
+    <tr>
+      <td>{{this.singerName}}</td>
+      <td>{{this.lyricistName}}</td>
+      <td>{{this.song}}</td> {{!-- Assuming song is populated --}}
+      <td>{{this.views}}</td>
+      {{!-- UPDATE and DELETE buttons --}}
+      <td>
+        {{#if ../user}}
+        <a href="/singers/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+        <a 
+          href="/singers/delete/{{this._id}}" 
+          onclick="return confirmDeletion()" 
+          class="btn btn-danger"
+        >Delete</a>
+        {{/if}}
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<script>
+  function confirmDeletion() {
+    return confirm("Are you sure you want to delete this singer?");
+  }
+</script>

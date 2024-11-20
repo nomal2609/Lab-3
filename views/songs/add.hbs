@@ -1,0 +1,40 @@
+<h1>
+  {{title}}
+</h1>
+<form method="POST">
+  <fieldset>
+    <label for="name" class="col-2">
+      Song Name:
+    </label>
+    <input name="name" id="name" required />
+  </fieldset>
+  <fieldset>
+    <label for="releaseDate" class="col-2">
+      Release Date:
+    </label>
+    <input name="releaseDate" id="releaseDate" required type="date" />
+  </fieldset>
+  <fieldset>
+    <label for="language" class="col-2">
+      Language:
+    </label>
+    <input name="language" id="language" required />
+  </fieldset>
+  <fieldset>
+    <label for="genre" class="col-2">
+      Genre:
+    </label>
+    <select name="genre" id="genre" required>
+      {{!-- Populate with predefined genres --}}
+      <option value="Pop">Pop</option>
+      <option value="Rock">Rock</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Classical">Classical</option>
+      <option value="Hip-Hop">Hip-Hop</option>
+      <option value="Electronic">Electronic</option>
+    </select>
+  </fieldset>
+  <button class="offset-3 btn btn-primary">
+    Save
+  </button>
+</form>

@@ -1,0 +1,39 @@
+<h1>
+  {{title}}
+</h1>
+<form method="POST">
+  {{! Input names have to match the name of the fields in the MongoDB schema object }}
+  <fieldset>
+    <label for="singerName" class="col-2">
+      Singer Name:
+    </label>
+    <input name="singerName" id="singerName" required />
+  </fieldset>
+  <fieldset>
+    <label for="lyricistName" class="col-2">
+      Lyricist Name:
+    </label>
+    <input name="lyricistName" id="lyricistName" required />
+  </fieldset>
+  <fieldset>
+    <label for="song" class="col-2">
+      Song:
+    </label>
+    <select name="song" id="song">
+      {{! Loop to render options for available songs }}
+      {{#each songs}}
+        <option>{{ this.name }}</option>
+      {{/each}}
+    </select>
+  </fieldset>
+  <fieldset>
+    <label for="views" class="col-2">
+      Views/Listeners:
+    </label>
+    <input name="views" id="views" type="text" placeholder="eg. 370 Million or 370M" required/>
+  </fieldset>
+  {{! Button needs to be inside <form> element to trigger POST }}
+  <button class="offset-3 btn btn-primary">
+    Save
+  </button>
+</form>
